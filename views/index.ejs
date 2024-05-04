@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs")%>
+
+<div class="boody-color px-4 py-5 text-center">
+    <div class="py-5">
+      <h1 class="display-5 fw-bold text-black">Book Notes</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="fs-5 mb-4">Hello thaks to visit my book notes page, I made this website from scratch.
+            I want to share my code abilities, and at the same time share some of my favorite books.
+        </p>
+      </div>
+    </div>
+</div>
+
+<% for(let i = 0; i < booksData.length; i++) { %>
+<div class="p-4 p-md-5 mb-4 rounded text-body-emphasis book-notes-color">
+    <div class="row">
+        <div class="col-lg-8 px-0">
+            <h2 class="display-4 fst-italic"><%= booksData[i].name %></h2>
+            <p><b>By:</b> <%= booksData[i].author %> <b>Read Date:</b> <%= booksData[i].read_date %>
+                <b>Rate:</b> <%= booksData[i].rate_number %>/10</p>
+            <p class="lead my-3"><%= booksData[i].note %></p>
+
+
+            <form action="/blog" method="post">
+                <input type="hidden" name="imageNumber" value="<%= i %>">
+                <input type="submit" name="blogId" value="<%= booksData[i].id %>" id="<%= booksData[i].id %>" class="hidden-value">
+                <label for="<%= booksData[i].id %>" class="text-body-emphasis fw-bold">
+                    Continue reading...
+                </label>
+            </form>
+        </div>
+
+        <div class="col-lg-4">
+            <img src="<%= covers[i] %>" alt="book-image" height="400px">
+        </div>
+    </div>
+</div>
+<% } %>
+
+<%- include("partials/footer.ejs")%>

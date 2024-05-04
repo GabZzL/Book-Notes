@@ -1,0 +1,32 @@
+.header-color{
+    background-color: #E5BA73;
+}
+
+.book-notes-color{
+    background-color: #FAEAB1;
+}
+
+.boody-color{
+    background-color: #FAF8F1;
+}
+
+.centered{
+    width: 800px; /* Set the width of the div */
+    margin: 0 auto; /* Set left and right margins to auto */
+    padding: 20px;
+}
+
+.hidden-value {
+    background-image: url('../images/arrow-down-right-square-fill.svg');
+    background-size: cover; /* or contain depending on how you want the image to fit */
+    width: 22x; /* set width */
+    height: 22px; /* set height */
+    border: none; /* remove border */
+    cursor: pointer; /* change cursor to pointer on hover */
+    /* Hide text value */
+    color: transparent;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    /* Add other styles as needed */
+}
