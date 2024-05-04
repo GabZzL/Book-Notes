@@ -1,17 +1,23 @@
 import express from "express";
 import bodyParser from "body-parser";
 import axios from "axios";
+import { config } from "dotenv";
 import pg from "pg";
+
+config();
+
+const { Pool } = pg;
 
 const app = express();
 const port = 3000;
 
-const db = new pg.Client({
-    user: "postgres",
-    host: "localhost",
-    database: "books",
-    password: "memeLG09",
-    port: 5432,
+const connectionString = process.env.DATABASE_URL;
+
+const db = new Pool({
+    connectionString: connectionString,
+    ssl: {
+      rejectUnauthorized: false,
+    },
   });
 
 db.connect();
